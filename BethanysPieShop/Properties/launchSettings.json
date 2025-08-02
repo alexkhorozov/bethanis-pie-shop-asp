@@ -6,7 +6,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7227",
-      "launchUrl": "pie/list",
+      "launchUrl": "Pie/Details/7",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
