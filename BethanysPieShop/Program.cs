@@ -1,9 +1,11 @@
-using Microsoft.Extensions.DependencyInjection;
+using BethanysPieShop.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+builder.Services.AddScoped<IPieRepository, MockPieRepository>();
+
 builder.Services.AddControllersWithViews();
-//builder .Services.AddScoped<IloggerService, LoggerService>();
 
 
 var app = builder.Build();
