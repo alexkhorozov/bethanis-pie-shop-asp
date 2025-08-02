@@ -18,7 +18,7 @@ public class PieController : Controller
     public IActionResult List()
     {
         PieListViewModel pieListViewModel = new PieListViewModel(
-            "Cheese cakes",
+            "All pies",
             _pieRepository.AllPies);
         return View(pieListViewModel);
     }
