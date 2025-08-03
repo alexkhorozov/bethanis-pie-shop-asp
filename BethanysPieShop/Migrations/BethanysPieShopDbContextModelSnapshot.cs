@@ -87,10 +87,13 @@ namespace BethanysPieShop.Migrations
                     b.ToTable("Pies");
                 });
 
-            modelBuilder.Entity("BethanysPieShop.Models.ShoppingCart", b =>
+            modelBuilder.Entity("BethanysPieShop.Models.ShoppingCartItem", b =>
                 {
-                    b.Property<string>("ShoppingCartId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("ShoppingCartItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShoppingCartItemId"));
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
@@ -98,10 +101,10 @@ namespace BethanysPieShop.Migrations
                     b.Property<int>("PieId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ShoppingCartItemId")
-                        .HasColumnType("int");
+                    b.Property<string>("ShoppingCartId")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ShoppingCartId");
+                    b.HasKey("ShoppingCartItemId");
 
                     b.HasIndex("PieId");
 
@@ -119,7 +122,7 @@ namespace BethanysPieShop.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("BethanysPieShop.Models.ShoppingCart", b =>
+            modelBuilder.Entity("BethanysPieShop.Models.ShoppingCartItem", b =>
                 {
                     b.HasOne("BethanysPieShop.Models.Pie", "Pie")
                         .WithMany()
